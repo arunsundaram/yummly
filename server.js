@@ -25,11 +25,11 @@ const env = process.env.NODE_ENV;
 const debug = debugLib('yummly');
 
 const server = express();
-server.use('/public', express.static(path.join(__dirname, '/build')));
 server.use(cookieParser());
 server.use(compression());
 server.use(bodyParser.json());
 server.use(csrf({cookie: true}));
+server.use('/public', express.static(path.join(__dirname, '/build')));
 
 // Fetchr Integration
 var fetchrPlugin = app.getPlugin('FetchrPlugin');

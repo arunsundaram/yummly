@@ -2,8 +2,9 @@
 
 module.exports = function(context, payload, done) {
     context.dispatch('RECIPES_SEARCH_START', payload);
+    var search = payload.query.q || '';
 
-    context.service.read('search', {}, {}, function(err, response) {
+    context.service.read('search', {search: search}, {}, function(err, response) {
         if (err || !response) {
             context.dispatch('RECIPES_SEARCH_FAILURE', payload);
             done();

@@ -2,12 +2,12 @@
 'use strict';
 var React = require('react');
 var SearchBar = require('./SearchBar');
-var Recipes = require('./Recipes');
+var RecipeDetail = require('./RecipeDetail');
 var provideContext = require('fluxible-addons-react/provideContext');
 var handleRoute = require('fluxible-router').handleRoute;
 var handleHistory = require('fluxible-router').handleHistory;
 
-var Home = React.createClass({
+var Detail = React.createClass({
     contextTypes: {
         executeAction: React.PropTypes.func.isRequired,
         getStore: React.PropTypes.func.isRequired
@@ -21,14 +21,14 @@ var Home = React.createClass({
             <div>
                 <SearchBar context={this.context} currentRoute={this.props.currentRoute}/>
                 <div className='main'>
-                    <Recipes context={this.context} currentRoute={this.props.currentRoute}/>
+                    <RecipeDetail context={this.context} currentRoute={this.props.currentRoute}/>
                 </div>
             </div>
         );
     }
 });
 
-Home = handleHistory(Home);
-Home = handleRoute(Home);
+Detail = handleHistory(Detail);
+Detail = handleRoute(Detail);
 
-module.exports = Home;
+module.exports = Detail;

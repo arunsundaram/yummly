@@ -18,6 +18,7 @@ var RecipeStore = createStore({
         this.nutrition = [];
         this.source = {};
         this.name = '';
+        this.error = false;
     },
 
     _getRecipeStart: function() {
@@ -25,6 +26,7 @@ var RecipeStore = createStore({
     },
 
     _getRecipeFailure: function() {
+        this.error = true;
         this.emitChange();
     },
 
@@ -35,6 +37,7 @@ var RecipeStore = createStore({
         this.nutrition = payload.nutrition;
         this.source = payload.source;
         this.name = payload.name;
+        this.emitChange();
     },
 
     getIngredients: function() {
@@ -59,6 +62,10 @@ var RecipeStore = createStore({
 
     getAttribution: function() {
         return this.attribution;
+    },
+
+    getError: function() {
+        return this.error;
     },
 
     dehydrate: function() {
