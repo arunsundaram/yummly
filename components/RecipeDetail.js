@@ -44,6 +44,9 @@ var RecipeDetail = React.createClass({
         var title = this.props.name;
         var sourceName = this.props.source.sourceDisplayName;
         var sourceUrl = this.props.source.sourceSiteUrl;
+        if (sourceUrl.indexOf('http')===-1) {
+            sourceUrl = 'http://' + sourceUrl;
+        }
         return (
             <div className='image-comp'>
                 <img src={imageSrc} />
