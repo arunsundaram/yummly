@@ -5,7 +5,7 @@ var shell = require('shelljs');
 
 new WebpackDevServer(webpack(config), {
     publicPath: config.output.publicPath,
-    hot: true,
+    hot: false,
     historyApiFallback: true,
     //quiet: true,
     proxy: {

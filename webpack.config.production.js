@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 var webpackConfig = {
     resolve: {
@@ -9,8 +10,8 @@ var webpackConfig = {
         './client.js'
     ],
     output: {
-        path: path.resolve('./build/js'),
-        publicPath: '/public/js/',
+        path: path.resolve('./build/'),
+        publicPath: '/public/',
         filename: 'main.min.js'
     },
     module: {
@@ -22,6 +23,7 @@ var webpackConfig = {
                     require.resolve('babel-loader')
                 ]
             },
+            { test: /\.css$/, loaders: ['style', 'css']},
             { test: /\.json$/, loader: 'json-loader'}
         ]
     },
@@ -39,7 +41,11 @@ var webpackConfig = {
             compress: {
                 warnings: false
             }
-        })
+        }),
+        new CopyWebpackPlugin([
+            {from: 'styles/*.css'},
+            {from: 'static/img/*.png'}
+        ])
     ],
     devtool: 'source-map'
 };

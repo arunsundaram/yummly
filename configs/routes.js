@@ -4,13 +4,15 @@ module.exports = {
         method: 'get',
         page: 'home',
         title: 'Home',
+        action: require('../actions/searchRecipes'),
         handler: require('../components/Home')
     },
-    about: {
-        path: '/about',
+    recipe: {
+        path: '/recipe/:id',
         method: 'get',
-        page: 'about',
-        title: 'About',
-        handler: require('../components/About')
+        page: 'recipe',
+        title: 'Recipe',
+        action: require('../actions/getRecipe'),
+        handler: require('../components/Detail')
     }
 };

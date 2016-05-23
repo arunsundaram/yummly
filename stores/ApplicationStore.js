@@ -14,10 +14,11 @@ var ApplicationStore = createStore({
     },
 
     handlePageTitle: function (currentRoute) {
-        this.dispatcher.waitFor(RouteStore, () => {
+        var self = this;
+        self.dispatcher.waitFor(RouteStore, function() {
             if (currentRoute && currentRoute.title) {
-                this.pageTitle = currentRoute.title;
-                this.emitChange();
+                self.pageTitle = currentRoute.title;
+                self.emitChange();
             }
         });
     },

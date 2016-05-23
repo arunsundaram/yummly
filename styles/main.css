@@ -1,0 +1,21 @@
+@import 'search.css';
+@import 'searchbox.css';
+@import 'recipe.css';
+
+body {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+     font-weight: 300;
+     background-color: #EEEEEE;
+}
+
+.main {
+    margin-top: 120px;
+}
+
+.attrib {
+    width: 100%;
+    padding: 20px;
+    background-color: #FFFFFF;
+    margin-top: 20px;
+    text-align: center;
+}

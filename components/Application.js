@@ -1,7 +1,6 @@
 /*globals document*/
 
 var React = require('react');
-var Nav = require('./Nav');
 var ApplicationStore = require('../stores/ApplicationStore');
 var connectToStores = require('fluxible-addons-react/connectToStores');
 var provideContext = require('fluxible-addons-react/provideContext');
@@ -9,12 +8,15 @@ var handleHistory = require('fluxible-router').handleHistory;
 var pages = require('../configs/routes');
 
 var Application = React.createClass({
+    contextTypes: {
+        getStore: React.PropTypes.func.isRequired
+    },
+
     render: function () {
         var Handler = this.props.currentRoute.handler;
 
         return (
             <div>
-                <Nav currentRoute={this.props.currentRoute} links={pages} />
                 <Handler />
             </div>
         );

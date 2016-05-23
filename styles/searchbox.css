@@ -1,0 +1,33 @@
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 15px;
+    width: 100%;
+    height: 60px;
+    overflow: hidden;
+    z-index: 2;
+    background-color: #FFFFFF;
+}
+
+.header .logo img {
+    height: 32px;
+    position:relative;
+    left:30px;
+}
+.header .logo a,
+.header .logo a:focus{
+    outline: none;
+}
+.header .searchbox {
+    position:absolute;
+    right: 100px;
+    top: 15px;
+}
+.header .searchbox .form-control {
+    width: 300px;
+}
+.header .searchbox .btn {
+    margin-left: 20px;
+}
+
