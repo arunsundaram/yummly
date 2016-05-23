@@ -8,7 +8,6 @@ module.exports = {
             path: 'recipes',
             params: {
                 maxResult: 30,
-                start: 0,
                 requirePictures: true
             }
         },

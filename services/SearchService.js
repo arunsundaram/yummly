@@ -9,6 +9,7 @@ module.exports = {
 
     read: function(req, resource, params, config, callback) {
         var query = params.search || '';
+        var start = params.start || 0;
 
         var responseHandler = function(err, res, body) {
             var error = ServiceUtil.hasError(err, res);
@@ -25,7 +26,7 @@ module.exports = {
                 attribution: body.attribution
             });
         };
-        request(ServiceUtil.getOptions(this.name, {q: query}), responseHandler);
+        request(ServiceUtil.getOptions(this.name, {q: query, start: start}), responseHandler);
 
         // Mock data
         // var response = mockService;
