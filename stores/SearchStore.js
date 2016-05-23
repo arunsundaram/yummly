@@ -8,7 +8,8 @@ var SearchStore = createStore({
     handlers: {
 //        'RECIPES_SEARCH_START': '_recipesSearchStart',
         'RECIPES_SEARCH_FAILURE': '_recipesSearchFailure',
-        'RECIPES_SEARCH_SUCCESS': '_addRecipes'
+        'RECIPES_SEARCH_SUCCESS': '_addRecipes',
+        'RECIPES_SEARCH_MORE_SUCCESS': '_addMoreRecipes'
     },
 
     initialize: function() {
@@ -29,6 +30,11 @@ var SearchStore = createStore({
     _addRecipes: function(payload) {
         this.recipes = payload.recipes;
         this.attribution = payload.attribution;
+        this.emitChange();
+    },
+
+    _addMoreRecipes: function(payload) {
+        this.recipes = this.recipes.concat(payload.recipes);
         this.emitChange();
     },
 
